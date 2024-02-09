@@ -1,0 +1,28 @@
+﻿  ZombieGame.cpp
+C:\Cplus_Cplus_stuff\ZombieShooter\ZombieGame.cpp(27,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Cplus_Cplus_stuff\ZombieShooter\ZombieGame.cpp(28,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Cplus_Cplus_stuff\ZombieShooter\ZombieGame.cpp(30,56): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Cplus_Cplus_stuff\ZombieShooter\ZombieGame.cpp(30,42): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Cplus_Cplus_stuff\ZombieShooter\ZombieGame.cpp(211,34): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Cplus_Cplus_stuff\ZombieShooter\ZombieGame.cpp(635,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  ZombieShooter.vcxproj -> C:\Cplus_Cplus_stuff\ZombieShooter\x64\Debug\ZombieShooter.exe
