@@ -1,4 +1,15 @@
-﻿  ZombieGame.cpp
+﻿  Bullet.cpp
+C:\Cplus_Cplus_stuff\ZombieShooter\Bullet.h(17,29): warning C4305: 'initializing': truncation from 'double' to 'const float'
+  PickUp.cpp
+C:\Cplus_Cplus_stuff\ZombieShooter\PickUp.cpp(36,19): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
+C:\Cplus_Cplus_stuff\ZombieShooter\PickUp.cpp(37,19): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
+C:\Cplus_Cplus_stuff\ZombieShooter\PickUp.cpp(62,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Cplus_Cplus_stuff\ZombieShooter\PickUp.cpp(62,23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Cplus_Cplus_stuff\ZombieShooter\PickUp.cpp(113,34): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+C:\Cplus_Cplus_stuff\ZombieShooter\PickUp.cpp(117,32): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+  ZombieGame.cpp
+C:\Cplus_Cplus_stuff\ZombieShooter\Player.h(34,49): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Cplus_Cplus_stuff\ZombieShooter\Bullet.h(17,29): warning C4305: 'initializing': truncation from 'double' to 'const float'
 C:\Cplus_Cplus_stuff\ZombieShooter\ZombieGame.cpp(27,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
           with
           [
@@ -19,10 +30,10 @@ C:\Cplus_Cplus_stuff\ZombieShooter\ZombieGame.cpp(30,42): warning C4244: 'argume
           [
               T=float
           ]
-C:\Cplus_Cplus_stuff\ZombieShooter\ZombieGame.cpp(211,34): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Cplus_Cplus_stuff\ZombieShooter\ZombieGame.cpp(635,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Cplus_Cplus_stuff\ZombieShooter\ZombieGame.cpp(850,50): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
+  Generating Code...
   ZombieShooter.vcxproj -> C:\Cplus_Cplus_stuff\ZombieShooter\x64\Debug\ZombieShooter.exe

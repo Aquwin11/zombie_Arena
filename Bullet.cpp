@@ -71,27 +71,19 @@ void Bullet::shoot(float startX, float startY, float targetX, float targetY,int 
 	b_InFlight = true;
 	b_position = Vector2f(startX, startY);
 
-	float gradient = (startX - targetX) / (startY - targetY);
-	if (gradient < 0)
-	{
-		gradient *= -1;
-	}
-	float ratioXY = b_BulletSpeed / (1 + gradient);
-	b_BulletY = ratioXY;
-	b_BulletX = ratioXY*gradient;
-	if (targetX < startX)
-	{
-		b_BulletX *= -1;
-	}
-	if (targetY < startY)
-	{
-		b_BulletY *= -1;
-	}
+	// Apply angle adjustment here
+	float dx = targetX - startX;
+	float dy = targetY - startY;
+	float angle = atan2(dy, dx); // Apply the adjustment directly
+
+	b_BulletX = cos(angle) * b_BulletSpeed;
+	b_BulletY = sin(angle) * b_BulletSpeed;
+
 	float range = 1000;
 	b_minX = startX - range;
 	b_minY = startY - range;
-	b_maxX = targetX + range;
-	b_maxY = targetY + range;
+	b_maxX = startX + range;
+	b_maxY = startY + range;
 
 	b_BulletShape.setPosition(b_position);
 }
@@ -105,4 +97,34 @@ void Bullet::Update(float elapseTime)
 	{
 		b_InFlight = false;
 	}
+}
+
+void Bullet::ZomShoot(float startX, float startY, float targetX, float targetY)
+{
+	b_InFlight = true;
+	b_position = Vector2f(startX, startY);
+
+	float gradient = (startX - targetX) / (startY - targetY);
+	if (gradient < 0)
+	{
+		gradient *= -1;
+	}
+	float ratioXY = b_EnemyPorjectile / (1 + gradient);
+	b_BulletY = ratioXY;
+	b_BulletX = ratioXY * gradient;
+	if (targetX < startX)
+	{
+		b_BulletX *= -1;
+	}
+	if (targetY < startY)
+	{
+		b_BulletY *= -1;
+	}
+	float range = 1000;
+	b_minX = startX - range;
+	b_minY = startY - range;
+	b_maxX = targetX + range;
+	b_maxY = targetY + range;
+	b_BulletShape.setFillColor(Color::Green);
+	b_BulletShape.setPosition(b_position);
 }

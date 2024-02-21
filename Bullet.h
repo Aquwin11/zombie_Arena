@@ -8,13 +8,13 @@ private:
 	const float PISTOL_BULLET_SPEED = 700;
 	const bool PISTOL_SPREAD = false;
 	const float PISTOL_BULLET_SIZE =3;
-	const float PISTOL_DAMAGE = 1;
+	const float PISTOL_DAMAGE = 1.5;
 
 	//Assualt RIFLE
 	const float RIFLE_BULLET_SPEED = 1500;
 	const bool  RIFLE_SPREAD = false;
-	const float RIFLE_BULLET_SIZE = 2;
-	const float RIFLE_DAMAGE = 0.25;
+	const float RIFLE_BULLET_SIZE = 3;
+	const float RIFLE_DAMAGE = 0.4;
 
 	//SNIPER
 	const float SNIPER_BULLET_SPEED = 2500;
@@ -26,12 +26,13 @@ private:
 	const float SHOTGUN_BULLET_SPEED = 1000;
 	const bool  SHOTGUN_SPREAD = true;
 	const float SHOTGUN_BULLET_SIZE = 5;
-	const float SHOTGUN_DAMAGE = 2;
+	const float SHOTGUN_DAMAGE = 1;
 
 	Vector2f b_position;
 	RectangleShape b_BulletShape;
 	bool b_InFlight=false;
 	float b_BulletSpeed;
+	float b_EnemyPorjectile=350;
 	bool b_spread;
 	float b_BulletSize;
 	float b_damge;
@@ -53,5 +54,7 @@ public:
 	float GetDamage();
 	float GetBulletSize();
 	void SetBulletSize(float size);
+
+	void ZomShoot(float startX, float startY, float targetX, float targetY);
 };
 

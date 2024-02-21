@@ -37,12 +37,15 @@ Time Player::getLastHit()
 	return m_LastHit;
 }
 
-bool Player::Hit(Time timeHit)
+bool Player::Hit(Time timeHit,float dmg)
 {
-	if ((timeHit.asMilliseconds() - m_LastHit.asMilliseconds()) > 200)
+	if ((timeHit.asMilliseconds() - m_LastHit.asMilliseconds()) > 500)
 	{
 		m_LastHit = timeHit;
-		m_CurrentHealth -= 10;
+		m_CurrentHealth -= dmg;
+		m_IsFlickering = true;
+		m_FlickerStartTime = timeHit;
+		m_LastToggleTime = timeHit - m_FlickerToggleInterval; // Ensure immediate toggle
 		return true;
 	}
 	else
@@ -173,7 +176,24 @@ void Player::IncreaseHealthLevel(int amount)
 
 }
 
-void Player::ChangeTexture(Texture newTexture)
+void Player::ChangeTexture(const std::string& textureName)
 {
+	sf::Texture& newTexture = TextureHolder::GetTexture(textureName);
 	m_Sprite.setTexture(newTexture);
 }
+void Player::updateFlickerEffect(sf::Time elapsedTime) {
+	if (m_IsFlickering) {
+		if (elapsedTime - m_FlickerStartTime > m_FlickerDuration) {
+			m_IsFlickering = false;
+			m_Sprite.setColor(sf::Color::White);
+		}
+		else {
+			if (elapsedTime - m_LastToggleTime > m_FlickerToggleInterval) {
+				m_FlickerColorToggle = !m_FlickerColorToggle;
+				m_Sprite.setColor(m_FlickerColorToggle ? sf::Color::Red : sf::Color::White);
+				m_LastToggleTime = elapsedTime;
+			}
+		}
+	}
+}
+

@@ -28,6 +28,12 @@ private:
 	Time m_LastHit;
 
 	float m_Speed;
+	bool m_IsFlickering = false;
+	sf::Time m_FlickerStartTime;
+	sf::Time m_FlickerDuration = sf::seconds(0.5); // Total duration of the flicker effect
+	sf::Time m_FlickerToggleInterval = sf::seconds(0.1); // Time between color toggles
+	sf::Time m_LastToggleTime;
+	bool m_FlickerColorToggle = false; // Toggle between original and flicker color
 
 public:
 	Player();
@@ -36,7 +42,7 @@ public:
 
 	void ResetPlayerStats();
 
-	bool Hit(Time timeHit);
+	bool Hit(Time timeHit, float dmg);
 
 	Time getLastHit();
 
@@ -68,5 +74,6 @@ public:
 
 	int getHealth();
 
-	void ChangeTexture(Texture newTexture);
+	void ChangeTexture(const std::string& textureName);
+	void updateFlickerEffect(sf::Time elapsedTime);
 };

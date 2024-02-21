@@ -15,18 +15,24 @@ void Zombie::Spawn(float startX, float startY, int zomType, int seed)
 		z_Speed = BLOATER_SPEED;
 		z_Health = BLOATER_HEALTH;
 		z_Sprite = Sprite(TextureHolder::GetTexture("graphics/bloater.png"));
+		z_type = 1;
+		z_damage = BLOATER_DAMAGE;
 		break;
 		//Chaser
 	case 1:
 		z_Speed = CHASER_SPEED;
 		z_Health = CHASER_HEALTH;
 		z_Sprite = Sprite(TextureHolder::GetTexture("graphics/chaser.png"));
+		z_type = 2;
+		z_damage = CHASER_DAMAGE;
 		break;
 		//Crawler
 	case 2:
 		z_Speed = CRAWLER_SPEED;
 		z_Health = CRAWLER_HEALTH;
 		z_Sprite = Sprite(TextureHolder::GetTexture("graphics/crawler.png"));
+		z_damage = CRAWLER_DAMAGE;
+		z_type = 3;
 		break;
 	}
 
@@ -120,3 +126,22 @@ void Zombie::FadeSplat(float elaspedTime)
 	}
 	z_Sprite.setColor(Color(z_zombieSpriteColor.r, z_zombieSpriteColor.g, z_zombieSpriteColor.b, z_splatOpacity));
 }
+
+bool Zombie::CanShoot(float elapsedTime, Vector2f playerPosition) {
+	float distance = (abs(sqrt(((playerPosition.x - z_Position.x) * (playerPosition.x - z_Position.x)) + ((playerPosition.y - z_Position.y) * (playerPosition.y - z_Position.y)))));
+	if (distance <= z_ShootDistance && (elapsedTime - z_LastShootTime >= z_ShootInterval)) {
+		z_LastShootTime = elapsedTime; // Reset shoot timer
+		return true;
+	}
+	return false;
+}
+float Zombie::GetZ_Type()
+{
+	return z_type;
+}
+
+float Zombie::GetZomDamage()
+{
+	return z_damage;
+}
+
